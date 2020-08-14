@@ -20,4 +20,4 @@ We accept contributions from the community. To submit changes:
 3. Make your changes.
 4. Submit a pull request with an explanation of your changes or additions.
 
-We will review and work with you to release the Symon Config file changes.
+We will review and work with you to release the Auditd Config file changes.
