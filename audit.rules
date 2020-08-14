@@ -1,0 +1,49 @@
+## First rule - delete all
+#-D
+
+## Increase the buffers to survive stress events.
+## Make this bigger for busy systems
+#-b 8192
+
+## Set failure mode to syslog
+#-f 1
+
+#Priv Escalation Related Events(sudo and su)
+-w /bin/su -p x -k T1169_Sudo
+-w /usr/bin/sudo -p x -k T1169_Sudo
+-w /etc/sudoers -p x -k T1169_Sudo
+-a always,exit -F dir=/home -F uid=0 -F auid>=1000 -F auid!=4294967295 -C auid!=obj_uid -k T1169_Sudo
+
+#Process discovery (PS)
+-w /usr/bin/ps -p x -k T1057_Process_Discovery
+
+#Data Compression (zip, tar, gzip)
+-w /usr/bin/zip -p x -k T1002_Data_Compressed
+-w /usr/bin/gzip -p x -k T1002_Data_Compressed
+-w /usr/bin/tar -p x -k T1002_Data_Compressed
+
+#Remote System Discovery (arp)
+-w /sbin/arp -p x -k T1018_Remote_system_Discovery
+
+#File and Directory Discovery (ls)
+-w /bin/ls -p x -k T1083_File_And_DIrectory_Discovery
+
+
+#Remote file copy (SCP)
+-w /bin/scp -p x -k T1105_Remote_File_Copy(scp)
+-w /usr/bin/scp -p x -k T1105_Remote_File_Copy(scp)
+
+#File deletion
+-w /bin/rm -p x -k T1070.004_File_Deletion(rm)
+-w /usr/bin/rm -p x -k T1070.004_File_Deletion(rm)
+
+#Data from local system
+-w /usr/bin/cp -p x -k T1005_Data_From_Local_System(cp)
+-w /bin/cp -p x -k T1005_Data_From_Local_System(cp)
+-w /usr/bin/mv -p x -k T1005_Data_From_Local_System(mv)
+-w /bin/mv -p x -k T1005_Data_From_Local_System(mv)
+
+
+
+#Make the configuration Immutable
+-e 2
