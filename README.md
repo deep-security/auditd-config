@@ -2,6 +2,7 @@
 This configuration file for Auditd is designed for the MITRE ATT&CK Evaluation. Tested with Deep Security Manager ™ 12 LTS with DSRU version 20-038 and above and Deep Security Agent version 12
 
 Instructions on configuring Auditd and the appropriate Log Inspection Rules can be found here:
+https://success.trendmicro.com/solution/000266142
 
 ## Support
 This Auditd Config can be tuned as per the Customer infrastructure and environment. Project contributors may be able to help, depending on their time and availability. Please be specific about what you're trying to do, your system, and steps to reproduce the problem.
